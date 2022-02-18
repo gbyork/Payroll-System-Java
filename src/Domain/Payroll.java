@@ -8,9 +8,11 @@ package Domain;
 import Database.EmployeeDA;
 import Database.PayrollDA;
 import Database.TimecardDA;
+import static Database.TimecardDA.Time;
 import Database.WithholdingDA;
 import java.util.ArrayList;
 import java.util.Date;
+
 /**
  *
  * @author rando
@@ -79,28 +81,26 @@ public class Payroll {
     public static ArrayList<Payroll> getPayrolls() {
         return PayrollDA.getPayrolls();
     }
-/*
+    
+    public double NetPayCalculation(Double NetPay) {
+    return GrossPay - TotalDeductions;
+    }
+    
     // calculate payroll in here     
-    public static double GrossPayCalculation(Employee employees, Timecard Time) {
 
-        for (int i = 0; i < employees.size(); i++) {
-            if (Time.EmployeeID == employees.EmployeeID) {
-                return Payroll.setGrossPay() = ((employees.getHourlyrate() * Time.HoursWorked) + (1.5 * employees.getHourlyrate() * employees.getOvertime()));
-            }
-        }
-        return 0;
-  
+    //calculategross pay in employee.java do nothing with it just return 0
+    //its used as a default
+    //hourly employee calculategrosspay
+    //salary employee calculategrosspay would just be AnnualSalary / 52
+    
 
-    }
-    // netpay = employees[1]
+    
+    //call employee to calculate grosspay for 
+    //employee loop inside of it look for calculategrosspay to get grosspay
+    //loop through withholding types in the employee loop
+    // grosspay minus  total deductions = netpay
+    
 
-    //going to wait on making all these methods by checking in with strong on this first
-    public static double NetPayCalculation(Employee employees, Withholding Withholdings) {
-        if ((Withholdings.EmployeeID == employees.EmployeeID)) {
-            // return ((employees.));
-        }
-        return 0;
-    }
 
     //idea for looping through employees and if they match to calculate gross pay */
 }

@@ -13,22 +13,23 @@ import java.util.ArrayList;
  * @author rando
  */
 public class Withholding {
-   public double EmployeeID;
-   public String Description;
-   public double Amount;
-   public double Rate;
 
-    public Withholding(){
+    public double EmployeeID;
+    public String Description;
+    public double Amount;
+    public double Rate;
+
+    public Withholding() {
 
     }
-    public Withholding(double EmployeeID, String Description, double Amount, double Rate){
-    this.EmployeeID = EmployeeID;
-    this.Description = Description;
-    this.Amount = Amount;
-    this.Rate = Rate;
 
-    
-}
+    public Withholding(double EmployeeID, String Description, double Amount, double Rate) {
+        this.EmployeeID = EmployeeID;
+        this.Description = Description;
+        this.Amount = Amount;
+        this.Rate = Rate;
+
+    }
 
     public double getEmployeeID() {
         return EmployeeID;
@@ -61,7 +62,9 @@ public class Withholding {
     public void setRate(double Rate) {
         this.Rate = Rate;
     }
-    public static ArrayList<Withholding>getWithholding(){
-    return WithholdingDA.getWithholding();
+
+    public static ArrayList<Withholding> getWithholding() {
+        return WithholdingDA.getWithholding();
     }
+    
 }

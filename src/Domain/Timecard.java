@@ -5,27 +5,33 @@
  */
 package Domain;
 
+import Database.EmployeeDA;
+import Database.PayrollDA;
 import Database.TimecardDA;
+import Domain.Employee;
 import java.util.ArrayList;
 import java.util.Date;
+
 /**
  *
  * @author rando
  */
 public class Timecard {
+
     public Date Date;
     public double EmployeeID;
     public double HoursWorked;
     public double Overtime;
-   
-    public Timecard(){
-       
+
+    public Timecard() {
+
     }
-    public Timecard(Date Date, double EmployeeID,double HoursWorked, double Overtime){
-    this.Date=Date;
-    this.EmployeeID=EmployeeID;
-    this.HoursWorked = HoursWorked;
-    this.Overtime = Overtime;
+
+    public Timecard(Date Date, double EmployeeID, double HoursWorked, double Overtime) {
+        this.Date = Date;
+        this.EmployeeID = EmployeeID;
+        this.HoursWorked = HoursWorked;
+        this.Overtime = Overtime;
     }
 
     public Date getDate() {
@@ -55,14 +61,50 @@ public class Timecard {
     public double getOvertime() {
         return Overtime;
     }
-
+    
     public void setOvertime(double Overtime) {
         this.Overtime = Overtime;
     }
-    public static ArrayList<Timecard>getTimecard(){
-    return TimecardDA.getTimecard();
+    
+    public static ArrayList<Timecard> getTimecard() {
+        return TimecardDA.getTimecard();
     }
- @Override
+    
+    
+    public static double getEmployeeTimecard(){
+          ArrayList<Timecard> Time = Timecard.getTimecard();
+          ArrayList<Employee>Employees = Employee.getEmployees();
+          for (int i = 0; i < Time.size(); i++) {  
+          if (Timecard = (Employee.getEmployees(EmployeeID)){   
+          Employee a;
+          a.setHoursWorked(HoursWorked);
+          
+      }
+       
+    }
+    }
+}
+       // ArrayList<Employee> Employees = Employee.getEmployees();
+  
+    
+    
+    /* public static double GrossPayCalculation() {
+
+        
+        ArrayList<Timecard> Time = Timecard.getTimecard();
+        for (int i = 0; i < Time.size(); i++) {
+     //   if (getEmployeeID == employees.getEmployeeID){
+        
+        }
+            
+            }
+     */
+     
+    }
+    //need to link employees and timecard
+    //static method getemployee.timecards
+     
+    @Override
     public String toString() {
         return " Timecard{ " + " Date " + Date + ", HoursWorked= " + HoursWorked + " , EmployeeID= " + EmployeeID + '}';
     }

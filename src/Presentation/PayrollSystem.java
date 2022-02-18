@@ -28,32 +28,32 @@ public class PayrollSystem {
      
         public static void main(String[] args) {
          EmployeeDA.initialize();
-     //   TimecardDA.initialize();
+        TimecardDA.initialize();
       //  WithholdingDA.initialize();
       //  PayrollDA.initialize();
         
          ArrayList<Employee>employees;
-        int i;
         
-        System.out.println(Employee.getEmployees());
+        
+      // Printing employee info
         System.out.println(" Inside Payroll System ");
         employees = Employee.getEmployees();
         System.out.println("\nEmployees\n");
-        for (i=0; i<employees.size(); i++)
+        for (int i=0; i<employees.size(); i++){
             System.out.println(employees.get(i));
+        }
+        //printing out timecard info
+            ArrayList<Timecard> Time;
         
-    /*     public static void main(String[] args) {
-        ArrayList<Employee>employees;
-        int i;
+        System.out.println(" ");
+        Time = Timecard.getTimecard();
+        System.out.println("\nTimecard\n");
+        for (int i=0; i<Time.size(); i++){
+        System.out.println(Time.get(i));
+        }
         
-       
-        System.out.println(" Inside Payroll System ");
-        employees = Employee.getEmployees();
-        System.out.println("\nEmployees\n");
-        for (i=0; i<employees.size(); i++)
-        System.out.println(employees.get(i));
         
-        */
+        
     }    
        
        

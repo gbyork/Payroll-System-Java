@@ -19,43 +19,33 @@ import java.util.Date;
  */
 public class PayrollDA {
 
-       private static ArrayList<Payroll>Payrolls  = new ArrayList<Payroll>();
-   
-   public static void initialize(){
-   
-   
-   
-       Payroll a;
-       Calendar calendar = Calendar.getInstance();
-       calendar.set(2022,1,12);
-       a=new Payroll();
-       a.setDate(calendar.getTime());
-       a.setEmployeeID(101);
-       
-           
-       
-       
-       a.setGrossPay(100);
+    private static ArrayList<Payroll> Payrolls = new ArrayList<Payroll>();
+
+    public static void initialize() {
+
+        Payroll a;
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2022, 1, 12);
+        a = new Payroll();
+        a.setDate(calendar.getTime());
+        a.setEmployeeID(101);
+        a.setTotalDeductions(103.97);    
+        //this info should be set by calculation methods if possible NOT SET MANUALLY
+        /*a.setGrossPay(100);
        a.setNetPay(100);
        a.setTotalDeductions(103.97);
-       
-       
-       Payrolls.add(a);
-   }
-    public static ArrayList<Payroll> getPayrolls(){
-    return Payrolls;
-    
-}
+         */
+        Payrolls.add(a);
+    }
+
+    public static ArrayList<Payroll> getPayrolls() {
+        return Payrolls;
+
+    }
 
     /*   public String Date;
    public double EmployeeID;
    public double GrossPay;
    public double TotalDeductions;
    public double NetPay;*/
-    
 }
- 
-    
-    
-    
-

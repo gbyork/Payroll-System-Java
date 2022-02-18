@@ -7,20 +7,21 @@ package Domain;
 
 import Database.EmployeeDA;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author rando
  */
-
 public abstract class Employee {
-     public String FirstName;
-     public String LastName;
-     public double EmployeeID;
-     public double SocialSecurityNumber;
 
-     public Employee(){
+    public String FirstName;
+    public String LastName;
+    public double EmployeeID;
+    public double SocialSecurityNumber;
     
+    public Employee() {
+
     }
 
     public Employee(String FirstName, String LastName, double EmployeeID, double SocialSecurityNumber) {
@@ -29,7 +30,7 @@ public abstract class Employee {
         this.LastName = LastName;
         this.EmployeeID = EmployeeID;
         this.SocialSecurityNumber = SocialSecurityNumber;
-   
+
     }
 
     public double getEmployeeID() {
@@ -38,29 +39,20 @@ public abstract class Employee {
 
     public void setEmployeeID(double EmployeeID) {
         this.EmployeeID = EmployeeID;
-    }   
+    }
 
-    
     public double getSocialSecurityNumber() {
         return SocialSecurityNumber;
     }
 
-
-
     public void setSocialSecurityNumber(double SocialSecurityNumber) {
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
-    
-     
-     
-
 
 //    public Employee(String FirstName, String LastName) {
-  //      this.FirstName = FirstName;
+    //      this.FirstName = FirstName;
     //    this.LastName = LastName;
     //}
-
-    
     public String getFirstName() {
         return FirstName;
     }
@@ -75,32 +67,48 @@ public abstract class Employee {
 
     public void setLastName(String LastName) {
         this.LastName = LastName;
-    
+
     }
-    
-    public void setAnnualSalary(double a){}
-    
-    public double getAnnualSalary(){
+
+    public void setAnnualSalary(double a) {
+    }
+
+    public double getAnnualSalary() {
         return 0.0;
     }
-    
-    public void setHourlyRate(double a){}
-    
-    public double getHourlyrate(){
+
+    public void setHourlyRate(double a) {
+    }
+
+    public double getHourlyrate() {
         return 0.0;
     }
-    
-    public void setOvertime(double a){}
-    
-    public double getOvertime(){
+
+    public void setOvertime(double a) {
+    }
+
+    public double getOvertime() {
         return 0.0;
     }
+
+    public static ArrayList<Employee> getEmployees() {
+        return EmployeeDA.getEmployees();
+    }
+    
+    public double CalculateGrossPay(Date Date){
+        return 0.0;
+    }
+     
+    //calculategrosspay will be polymorphic
        
-    public static ArrayList<Employee>getEmployees(){
-    return EmployeeDA.getEmployees();
-    }
+    //Calculate GrossPay
     
-     @Override
+
+    // Calculategrosspay (Date Date)
+    // return 0.0
+    
+    
+    @Override
     public String toString() {
         return "Employee{" + "FirstName=" + FirstName + ", lastName=" + LastName + ", EmployeeID=" + EmployeeID + ", SocialSecurityNumber=" + SocialSecurityNumber + '}';
     }

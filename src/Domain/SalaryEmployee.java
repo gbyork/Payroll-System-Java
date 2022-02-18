@@ -7,6 +7,7 @@ package Domain;
 
 import Database.EmployeeDA;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -35,11 +36,16 @@ public class SalaryEmployee extends Employee{
     public void setAnnualSalary(double AnnualSalary) {
         this.AnnualSalary = AnnualSalary;
     }
-   
+    
+    @Override
+    public double CalculateGrossPay(Date Date){
+        return  AnnualSalary/52;
+    }
+    
     @Override
     public String toString() {
         return " SalaryEmployee{ " + " FirstName= " + FirstName + ", lastName= " + LastName + " , EmployeeID= " + EmployeeID + ", SocialSecurityNumber= " + SocialSecurityNumber + " AnnualSalary= " + AnnualSalary + '}';
     }
-
+    //grosspay  calculate div by 52
 
 }
