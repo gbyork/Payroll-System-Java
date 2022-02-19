@@ -17,7 +17,7 @@ public class SalaryEmployee extends Employee {
 
     public double AnnualSalary;
     private Payroll SalaryPayroll;
- 
+    
     public SalaryEmployee() {
 
     }

@@ -23,7 +23,9 @@ public abstract class Employee {
     public int SocialSecurityNumber;
     public Payroll EmployeePayroll;
     public Withholding EmployeeWithholding;
-
+    //there will be payroll, withholding, and timecard classes found throughout 
+    //hourly,salary, and super class employee
+    //these are used to link a connection between employee information and information between the other classes
     public Employee() {
 
     }
@@ -146,14 +148,14 @@ public abstract class Employee {
             SalaryEmployee se = (SalaryEmployee) this;
             result += "Annual Salary: " + se.getAnnualSalary() + "\n";
             result += "Gross Pay: " + se.CalculateGrossPay() + "\n";
-            result += "Current Method For Net Pay Not Functional. Please look in comments for more information" + "\n";
+            result += "Current Method For Net Pay Not Functional. Please look in PayrollSystem.Java comments for more information" + "\n";
             //    result += "Net Pay: " + se.CalculateNetPay()+ "\n";
         } else if (this instanceof HourlyEmployee) {
             HourlyEmployee he = (HourlyEmployee) this;
             result += "Hours Worked: " + he.getTimeCard().HoursWorked + "\n";
             result += "Gross Pay: " + he.CalculateGrossPay() + "\n";
-            result += "Current Method For Net Pay Not Functional. Please look in comments for more information" + "\n";
-            //    result += "Net Pay: " + he.CalculateNetPay() + "\n";
+            result += "Current Method For Net Pay Not Functional. Please look in PayrollSystem.Java comments for more information" + "\n";
+      //    result += "Net Pay: " + he.CalculateNetPay() + "\n";
         } else {
         }
         result += "\n*****************************************************\n";
