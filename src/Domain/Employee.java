@@ -130,7 +130,8 @@ public abstract class Employee {
         return 0.0;
     }
 
-    // Ultimate toString (this way it is only printed once instead of making the main class bloated)    
+    // Ultimate toString (this way it is only printed once instead of making the main class bloated)
+   // and having several tostrings   
     @Override
     public String toString() {
         String result = "";
@@ -153,6 +154,7 @@ public abstract class Employee {
         } else if (this instanceof HourlyEmployee) {
             HourlyEmployee he = (HourlyEmployee) this;
             result += "Hours Worked: " + he.getTimeCard().HoursWorked + "\n";
+            result += "Hourly Pay: " + he.getHourlyRate() + "\n";
             result += "Gross Pay: " + he.CalculateGrossPay() + "\n";
             result += "Current Method For Net Pay Not Functional. Please look in PayrollSystem.Java comments for more information" + "\n";
       //    result += "Net Pay: " + he.CalculateNetPay() + "\n";

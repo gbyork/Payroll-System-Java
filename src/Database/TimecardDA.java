@@ -45,7 +45,7 @@ public class TimecardDA {
         Timecards.add(a);
     }
     //hourlyemployee will call get employeeid
-    //timecard da will loop through arraylist of timecards to make another arraylist
+    
     //
     
     
