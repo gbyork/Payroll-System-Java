@@ -69,52 +69,10 @@ public class Timecard {
     public static ArrayList<Timecard> getTimecard() {
         return TimecardDA.getTimecard();
     }
-          //hourlyemployee will call get employeeid
-          //timecard da will loop through arraylist of timecards to make another arraylist
-          //
-    
-    //make timecard arraylist
-    //assigning timecard to employees
-   /* public static double getEmployeeTimecard(double EmployeeID){
-          ArrayList<Timecard> Time = Timecard.getTimecard();
-          //hourlyemployee will call get employeeid
-          //timecard da will loop through arraylist of timecards to make another arraylist
-          //
-          ArrayList<Employee>Employees = Employee.getEmployees();
-          
-          for (int i = 0; i < Time.size(); i++) {  
-          if (Time.EmployeeID = (Employees.EmployeeID)){   
-          
-          Employee a;
-          a.setHoursWorked(HoursWorked);
-          a.setOvertime(Overtime);
-          return Employees;
-          
-          
-      }
-       
-    }
-    }
-}*/
-       // ArrayList<Employee> Employees = Employee.getEmployees();
-  
-    
-    
-    /* public static double GrossPayCalculation() {
-
-        
-        ArrayList<Timecard> Time = Timecard.getTimecard();
-        for (int i = 0; i < Time.size(); i++) {
-     //   if (getEmployeeID == employees.getEmployeeID){
-        
-        }
-            
-            }
-     */
-     
+      
     
     //need to link employees and timecard
-    //static method getemployee.timecards
+   
      
     @Override
     public String toString() {

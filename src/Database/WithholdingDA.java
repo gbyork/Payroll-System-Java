@@ -23,6 +23,7 @@ public class WithholdingDA {
 
         Withholding a;
         //creating withholding
+      
         a = new Withholding();
         // need info for double EmployeeID, String Description, double Amount, double Rate
         a.setEmployeeID(101);
@@ -32,6 +33,29 @@ public class WithholdingDA {
 
         Withholdings.add(a);
 
+        a = new Withholding();
+        a.setEmployeeID(102);
+        a.setDescription("401k contributions");
+        a.setAmount(480);
+        a.setRate(2.5);
+
+        Withholdings.add(a);
+
+        a = new Withholding();
+        a.setEmployeeID(103);
+        a.setDescription("401k contributions");
+        a.setAmount(480);
+        a.setRate(2.5);
+
+        Withholdings.add(a);
+
+        a = new Withholding();
+        a.setEmployeeID(104);
+        a.setDescription("401k contributions");
+        a.setAmount(480);
+        a.setRate(2.5);
+
+        Withholdings.add(a);
     }
 
     public static ArrayList<Withholding> getWithholding() {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Withholding {
 
-    public double EmployeeID;
+    public int EmployeeID;
     public String Description;
     public double Amount;
     public double Rate;
@@ -23,7 +23,7 @@ public class Withholding {
 
     }
 
-    public Withholding(double EmployeeID, String Description, double Amount, double Rate) {
+    public Withholding(int EmployeeID, String Description, double Amount, double Rate) {
         this.EmployeeID = EmployeeID;
         this.Description = Description;
         this.Amount = Amount;
@@ -31,11 +31,11 @@ public class Withholding {
 
     }
 
-    public double getEmployeeID() {
+    public int getEmployeeID() {
         return EmployeeID;
     }
 
-    public void setEmployeeID(double EmployeeID) {
+    public void setEmployeeID(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
 

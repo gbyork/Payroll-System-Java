@@ -103,7 +103,9 @@ public class Payroll {
     // grosspay minus  total deductions = netpay
     
 
-
+    public String toString() {
+        return " Payroll Date and Employees { " + " Date " + Date +  " This Day Was Worked By EmployeeID= " + EmployeeID + '}';
+    }
     //idea for looping through employees and if they match to calculate gross pay */
 }
 

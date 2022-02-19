@@ -8,6 +8,8 @@ package Domain;
 import Database.EmployeeDA;
 import java.util.ArrayList;
 import java.util.Date;
+import Domain.Withholding;
+import Database.WithholdingDA;
 
 /**
  *
@@ -18,20 +20,38 @@ public abstract class Employee {
     public String FirstName;
     public String LastName;
     public int EmployeeID;
-    public double SocialSecurityNumber;
+    public int SocialSecurityNumber;
     public Payroll EmployeePayroll;
-    
+    public Withholding EmployeeWithholding;
+
     public Employee() {
 
     }
 
-    public Employee(String FirstName, String LastName, int EmployeeID, double SocialSecurityNumber) {
+    public Employee(String FirstName, String LastName, int EmployeeID, int SocialSecurityNumber) {
         super();
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.EmployeeID = EmployeeID;
         this.SocialSecurityNumber = SocialSecurityNumber;
 
+    }
+
+    public void setWithholding(Withholding wh) {
+        this.EmployeeWithholding = wh;
+        this.EmployeeID = wh.EmployeeID;
+    }
+
+    public void findWithholdings(ArrayList<Withholding> Withholdings) {
+        for (Withholding withholding : Withholdings) {
+            if (withholding.EmployeeID == this.EmployeeID) {
+                this.setWithholding(withholding);
+            }
+        }
+    }
+
+    public Withholding getWithholding() {
+        return this.EmployeeWithholding;
     }
 
     public int getEmployeeID() {
@@ -42,18 +62,14 @@ public abstract class Employee {
         this.EmployeeID = EmployeeID;
     }
 
-    public double getSocialSecurityNumber() {
+    public int getSocialSecurityNumber() {
         return SocialSecurityNumber;
     }
 
-    public void setSocialSecurityNumber(double SocialSecurityNumber) {
+    public void setSocialSecurityNumber(int SocialSecurityNumber) {
         this.SocialSecurityNumber = SocialSecurityNumber;
     }
 
-//    public Employee(String FirstName, String LastName) {
-    //      this.FirstName = FirstName;
-    //    this.LastName = LastName;
-    //}
     public String getFirstName() {
         return FirstName;
     }
@@ -91,46 +107,56 @@ public abstract class Employee {
     public double getOvertime() {
         return 0.0;
     }
-    
+
+    public double getWithholdings() {
+        return EmployeeWithholding.Amount;
+    }
+
     public static ArrayList<Employee> getEmployees() {
         return EmployeeDA.getEmployees();
     }
-    
-    public double CalculateGrossPay(Date Date){
+
+    public double CalculateGrossPay() {
         return 0.0;
     }
-     
-    //calculategrosspay will be polymorphic
-       
-    //Calculate GrossPay
-    
 
-    // Calculategrosspay (Date Date)
-    // return 0.0
-    
-    
+    public double getTotalDeductions() {
+        return EmployeeWithholding.Amount;
+    }
+
+    public double CalculateNetPay() {
+        return 0.0;
+    }
+
+    // Ultimate toString (this way it is only printed once instead of making the main class bloated)    
     @Override
     public String toString() {
         String result = "";
         //result += "Employee{" + "FirstName=" + FirstName + ", lastName=" + LastName + ", EmployeeID=" + EmployeeID + ", SocialSecurityNumber=" + SocialSecurityNumber; 
+        // Sweet thing that can be done to make main employee info display
         String employeeType = this instanceof SalaryEmployee ? "Salary" : "Hourly";
-        
-            result += "\n";
-            result += "****************" + this.FirstName +" " + this.LastName +"*******************\n\n";
-            result += "Employee Type: " + employeeType + "\n"; 
-            result += "Employee ID: " + this.EmployeeID + "\n";
+
+        result += "\n";
+        result += "****************" + this.FirstName + " " + this.LastName + "*******************\n\n";
+        result += "Social Security: " + this.SocialSecurityNumber + "\n";
+        result += "Employee Type: " + employeeType + "\n";
+        result += "Employee ID: " + this.EmployeeID + "\n";
+        // thing that can be done to make salary/hourly specific info display on top of the default info
         if (this instanceof SalaryEmployee) {
-            SalaryEmployee se = (SalaryEmployee)this; 
+            SalaryEmployee se = (SalaryEmployee) this;
             result += "Annual Salary: " + se.getAnnualSalary() + "\n";
-        }
-        else if (this instanceof HourlyEmployee) {
-            HourlyEmployee he = (HourlyEmployee)this;
+            result += "Gross Pay: " + se.CalculateGrossPay() + "\n";
+            result += "Current Method For Net Pay Not Functional. Please look in comments for more information" + "\n";
+            //    result += "Net Pay: " + se.CalculateNetPay()+ "\n";
+        } else if (this instanceof HourlyEmployee) {
+            HourlyEmployee he = (HourlyEmployee) this;
             result += "Hours Worked: " + he.getTimeCard().HoursWorked + "\n";
             result += "Gross Pay: " + he.CalculateGrossPay() + "\n";
+            result += "Current Method For Net Pay Not Functional. Please look in comments for more information" + "\n";
+            //    result += "Net Pay: " + he.CalculateNetPay() + "\n";
+        } else {
         }
-        else {}
         result += "\n*****************************************************\n";
-        return result; 
+        return result;
     }
 }
-

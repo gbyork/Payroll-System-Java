@@ -5,63 +5,62 @@
  */
 package Presentation;
 
-
-
-
 import Database.EmployeeDA;
 import Database.PayrollDA;
 import Database.TimecardDA;
 import Database.WithholdingDA;
 import Domain.Employee;
-import Domain.HourlyEmployee; 
+import Domain.HourlyEmployee;
 import Domain.Payroll;
 import Domain.Timecard;
 import java.util.ArrayList;
 import Domain.SalaryEmployee;
+import Domain.Withholding;
 import java.io.*;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author rando
  */
 public class PayrollSystem {
-   //payroll.calculation payroll will be pushed here//
-            //BankingSystemDA.initialize();
-     
-        public static void main(String[] args) {
-         
-        
-      //  WithholdingDA.initialize();
-      //  PayrollDA.initialize();
-        
-        ArrayList<Employee>employees;
+    //payroll.calculation payroll will be pushed here//
+    //BankingSystemDA.initialize();
+
+    public static void main(String[] args) {
+
+        ArrayList<Employee> employees;
         ArrayList<Timecard> timecards;
         ArrayList<Payroll> payrolls;
-        
+
         EmployeeDA.initialize();
         TimecardDA.initialize();
         PayrollDA.initialize();
-      // Printing employee info
+
         System.out.println(" Inside Payroll System ");
         employees = Employee.getEmployees();
         timecards = Timecard.getTimecard();
         payrolls = Payroll.getPayrolls();
         for (Employee employee : employees) {
             if (employee instanceof HourlyEmployee) {
-                HourlyEmployee he = (HourlyEmployee)employee; 
+                HourlyEmployee he = (HourlyEmployee) employee;
                 he.findTimecard(timecards);
             }
         }
-        System.out.println(timecards.size());
+
         System.out.println("\nEmployees\n");
-        for (int i=0; i<employees.size(); i++){
+        for (int i = 0; i < employees.size(); i++) {
             System.out.println(employees.get(i).toString());
         }
-              
-        
-        
-       
-       
+        // Went against my idea of making main less bloated
+        // Making payroll print in last moment so that Date will be printed
+        System.out.println("\nAdditional Payroll Info\n");
+        for (int i = 0; i < payrolls.size(); i++) {
+            System.out.println(payrolls.get(i).toString());
         }
+
+    }
 }
 
        
