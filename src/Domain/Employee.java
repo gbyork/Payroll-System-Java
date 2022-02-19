@@ -17,14 +17,15 @@ public abstract class Employee {
 
     public String FirstName;
     public String LastName;
-    public double EmployeeID;
+    public int EmployeeID;
     public double SocialSecurityNumber;
+    public Payroll EmployeePayroll;
     
     public Employee() {
 
     }
 
-    public Employee(String FirstName, String LastName, double EmployeeID, double SocialSecurityNumber) {
+    public Employee(String FirstName, String LastName, int EmployeeID, double SocialSecurityNumber) {
         super();
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -33,11 +34,11 @@ public abstract class Employee {
 
     }
 
-    public double getEmployeeID() {
+    public int getEmployeeID() {
         return EmployeeID;
     }
 
-    public void setEmployeeID(double EmployeeID) {
+    public void setEmployeeID(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
 
@@ -90,7 +91,7 @@ public abstract class Employee {
     public double getOvertime() {
         return 0.0;
     }
-
+    
     public static ArrayList<Employee> getEmployees() {
         return EmployeeDA.getEmployees();
     }
@@ -110,6 +111,26 @@ public abstract class Employee {
     
     @Override
     public String toString() {
-        return "Employee{" + "FirstName=" + FirstName + ", lastName=" + LastName + ", EmployeeID=" + EmployeeID + ", SocialSecurityNumber=" + SocialSecurityNumber + '}';
+        String result = "";
+        //result += "Employee{" + "FirstName=" + FirstName + ", lastName=" + LastName + ", EmployeeID=" + EmployeeID + ", SocialSecurityNumber=" + SocialSecurityNumber; 
+        String employeeType = this instanceof SalaryEmployee ? "Salary" : "Hourly";
+        
+            result += "\n";
+            result += "****************" + this.FirstName +" " + this.LastName +"*******************\n\n";
+            result += "Employee Type: " + employeeType + "\n"; 
+            result += "Employee ID: " + this.EmployeeID + "\n";
+        if (this instanceof SalaryEmployee) {
+            SalaryEmployee se = (SalaryEmployee)this; 
+            result += "Annual Salary: " + se.getAnnualSalary() + "\n";
+        }
+        else if (this instanceof HourlyEmployee) {
+            HourlyEmployee he = (HourlyEmployee)this;
+            result += "Hours Worked: " + he.getTimeCard().HoursWorked + "\n";
+            result += "Gross Pay: " + he.CalculateGrossPay() + "\n";
+        }
+        else {}
+        result += "\n*****************************************************\n";
+        return result; 
     }
 }
+

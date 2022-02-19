@@ -29,12 +29,14 @@ public class PayrollDA {
         a = new Payroll();
         a.setDate(calendar.getTime());
         a.setEmployeeID(101);
-        a.setTotalDeductions(103.97);    
-        //this info should be set by calculation methods if possible NOT SET MANUALLY
-        /*a.setGrossPay(100);
-       a.setNetPay(100);
-       a.setTotalDeductions(103.97);
-         */
+        a.setTotalDeductions(103.97);  
+        
+        //this info should be set by calculation methods NOT SET MANUALLY
+        /*
+          a.setGrossPay();
+          a.setNetPay();
+          a.setTotalDeductions();
+        */
         Payrolls.add(a);
     }
 

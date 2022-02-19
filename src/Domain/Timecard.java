@@ -19,7 +19,7 @@ import java.util.Date;
 public class Timecard {
 
     public Date Date;
-    public double EmployeeID;
+    public int EmployeeID;
     public double HoursWorked;
     public double Overtime;
 
@@ -27,7 +27,7 @@ public class Timecard {
 
     }
 
-    public Timecard(Date Date, double EmployeeID, double HoursWorked, double Overtime) {
+    public Timecard(Date Date, int EmployeeID, double HoursWorked, double Overtime) {
         this.Date = Date;
         this.EmployeeID = EmployeeID;
         this.HoursWorked = HoursWorked;
@@ -42,11 +42,11 @@ public class Timecard {
         this.Date = Date;
     }
 
-    public double getEmployeeID() {
+    public int getEmployeeID() {
         return EmployeeID;
     }
 
-    public void setEmployeeID(double EmployeeID) {
+    public void setEmployeeID(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
 
@@ -69,21 +69,33 @@ public class Timecard {
     public static ArrayList<Timecard> getTimecard() {
         return TimecardDA.getTimecard();
     }
+          //hourlyemployee will call get employeeid
+          //timecard da will loop through arraylist of timecards to make another arraylist
+          //
     
-    
-    public static double getEmployeeTimecard(){
+    //make timecard arraylist
+    //assigning timecard to employees
+   /* public static double getEmployeeTimecard(double EmployeeID){
           ArrayList<Timecard> Time = Timecard.getTimecard();
+          //hourlyemployee will call get employeeid
+          //timecard da will loop through arraylist of timecards to make another arraylist
+          //
           ArrayList<Employee>Employees = Employee.getEmployees();
+          
           for (int i = 0; i < Time.size(); i++) {  
-          if (Timecard = (Employee.getEmployees(EmployeeID)){   
+          if (Time.EmployeeID = (Employees.EmployeeID)){   
+          
           Employee a;
           a.setHoursWorked(HoursWorked);
+          a.setOvertime(Overtime);
+          return Employees;
+          
           
       }
        
     }
     }
-}
+}*/
        // ArrayList<Employee> Employees = Employee.getEmployees();
   
     
@@ -100,7 +112,7 @@ public class Timecard {
             }
      */
      
-    }
+    
     //need to link employees and timecard
     //static method getemployee.timecards
      

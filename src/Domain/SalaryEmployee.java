@@ -22,7 +22,7 @@ public class SalaryEmployee extends Employee{
     public SalaryEmployee(){
         
     }
-     public SalaryEmployee(String FirstName,String LastName, double EmployeeID, double SocialSecurityNumber,double AnnualSalary){
+     public SalaryEmployee(String FirstName,String LastName, int EmployeeID, double SocialSecurityNumber,double AnnualSalary){
         super(FirstName,LastName,EmployeeID,SocialSecurityNumber);
         this.AnnualSalary = AnnualSalary;
     }
@@ -37,15 +37,15 @@ public class SalaryEmployee extends Employee{
         this.AnnualSalary = AnnualSalary;
     }
     
-    @Override
-    public double CalculateGrossPay(Date Date){
+    
+    public double CalculateGrossPay(){
         return  AnnualSalary/52;
     }
     
-    @Override
-    public String toString() {
-        return " SalaryEmployee{ " + " FirstName= " + FirstName + ", lastName= " + LastName + " , EmployeeID= " + EmployeeID + ", SocialSecurityNumber= " + SocialSecurityNumber + " AnnualSalary= " + AnnualSalary + '}';
-    }
+    //@Override
+    //public String toString() {
+        //return " SalaryEmployee{ " + " FirstName= " + FirstName + ", lastName= " + LastName + " , EmployeeID= " + EmployeeID + ", SocialSecurityNumber= " + SocialSecurityNumber + " AnnualSalary= " + AnnualSalary + '}';
+    //}
     //grosspay  calculate div by 52
 
 }

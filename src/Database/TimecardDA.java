@@ -5,10 +5,13 @@
  */
 package Database;
 
+import Domain.Employee;
 import Domain.Timecard;
+import Database.EmployeeDA;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import Domain.HourlyEmployee;
 
 /**
  *
@@ -16,7 +19,7 @@ import java.util.Date;
  */
 public class TimecardDA {
 
-    public static ArrayList<Timecard> Time = new ArrayList<Timecard>();
+    public static ArrayList<Timecard> Timecards = new ArrayList<Timecard>();
 
 //started adding timecards
     public static void initialize() {
@@ -28,20 +31,28 @@ public class TimecardDA {
         a = new Timecard();
         c.set(2022, 1, 12);
         a.setDate(c.getTime());
-        a.setEmployeeID(101);
+        a.setEmployeeID(103);
         a.setHoursWorked(8);
         a.setOvertime(0);
 
-        Time.add(a);
+        Timecards.add(a);
         a = new Timecard();
-        //    a.setDate("2/6/2022");
-        a.setEmployeeID(102);
+        c.set(2022, 1, 13);
+        a.setDate(c.getTime());
+        a.setEmployeeID(104);
         a.setHoursWorked(8);
         a.setOvertime(0);
-
+        Timecards.add(a);
     }
+    //hourlyemployee will call get employeeid
+    //timecard da will loop through arraylist of timecards to make another arraylist
+    //
+    
+    
+    
 
     public static ArrayList<Timecard> getTimecard() {
-        return Time;
+        return Timecards;
     }
+
 }

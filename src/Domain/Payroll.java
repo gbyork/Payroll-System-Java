@@ -8,7 +8,6 @@ package Domain;
 import Database.EmployeeDA;
 import Database.PayrollDA;
 import Database.TimecardDA;
-import static Database.TimecardDA.Time;
 import Database.WithholdingDA;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,7 +19,7 @@ import java.util.Date;
 public class Payroll {
 
     public Date Date;
-    public double EmployeeID;
+    public int EmployeeID;
     public double GrossPay;
     public double TotalDeductions;
     public double NetPay;
@@ -29,7 +28,7 @@ public class Payroll {
 
     }
 
-    public Payroll(Date Date, double EmployeeID, double GrossPay, double TotalDeductions, double NetPay) {
+    public Payroll(Date Date, int EmployeeID, double GrossPay, double TotalDeductions, double NetPay) {
         this.Date = Date;
         this.EmployeeID = EmployeeID;
         this.GrossPay = GrossPay;
@@ -46,11 +45,11 @@ public class Payroll {
         this.Date = Date;
     }
 
-    public double getEmployeeID() {
+    public int getEmployeeID() {
         return EmployeeID;
     }
 
-    public void setEmployeeID(double EmployeeID) {
+    public void setEmployeeID(int EmployeeID) {
         this.EmployeeID = EmployeeID;
     }
 
@@ -82,10 +81,13 @@ public class Payroll {
         return PayrollDA.getPayrolls();
     }
     
-    public double NetPayCalculation(Double NetPay) {
+    
+    
+    
+  /*  public double NetPayCalculation(Double NetPay) {
     return GrossPay - TotalDeductions;
     }
-    
+    */
     // calculate payroll in here     
 
     //calculategross pay in employee.java do nothing with it just return 0

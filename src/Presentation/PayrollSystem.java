@@ -11,13 +11,14 @@ package Presentation;
 import Database.EmployeeDA;
 import Database.PayrollDA;
 import Database.TimecardDA;
-import static Database.TimecardDA.Time;
 import Database.WithholdingDA;
 import Domain.Employee;
+import Domain.HourlyEmployee; 
 import Domain.Payroll;
 import Domain.Timecard;
 import java.util.ArrayList;
-
+import Domain.SalaryEmployee;
+import java.io.*;
 /**
  *
  * @author rando
@@ -27,40 +28,45 @@ public class PayrollSystem {
             //BankingSystemDA.initialize();
      
         public static void main(String[] args) {
-         EmployeeDA.initialize();
-        TimecardDA.initialize();
+         
+        
       //  WithholdingDA.initialize();
       //  PayrollDA.initialize();
         
-         ArrayList<Employee>employees;
+        ArrayList<Employee>employees;
+        ArrayList<Timecard> timecards;
+        ArrayList<Payroll> payrolls;
         
-        
+        EmployeeDA.initialize();
+        TimecardDA.initialize();
+        PayrollDA.initialize();
       // Printing employee info
         System.out.println(" Inside Payroll System ");
         employees = Employee.getEmployees();
+        timecards = Timecard.getTimecard();
+        payrolls = Payroll.getPayrolls();
+        for (Employee employee : employees) {
+            if (employee instanceof HourlyEmployee) {
+                HourlyEmployee he = (HourlyEmployee)employee; 
+                he.findTimecard(timecards);
+            }
+        }
+        System.out.println(timecards.size());
         System.out.println("\nEmployees\n");
         for (int i=0; i<employees.size(); i++){
-            System.out.println(employees.get(i));
+            System.out.println(employees.get(i).toString());
         }
-        //printing out timecard info
-            ArrayList<Timecard> Time;
-        
-        System.out.println(" ");
-        Time = Timecard.getTimecard();
-        System.out.println("\nTimecard\n");
-        for (int i=0; i<Time.size(); i++){
-        System.out.println(Time.get(i));
-        }
+              
         
         
-        
-    }    
        
        
-      
+        }
+}
+
        
   
-}
+
 
 
 
